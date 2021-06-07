@@ -1,6 +1,7 @@
 package com.example.mvvmexample
-import com.example.mvvmexample.model.MainViewModel
+
 import com.example.mvvmexample.databinding.ActivityMainBinding
+import com.example.mvvmexample.model.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseView<ActivityMainBinding, MainViewModel>() {

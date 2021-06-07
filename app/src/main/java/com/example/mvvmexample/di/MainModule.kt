@@ -3,7 +3,7 @@ package com.example.mvvmexample.di
 import com.example.mvvmexample.api.ApiService
 import com.example.mvvmexample.model.DataModel
 import com.example.mvvmexample.model.DataModelImpl
-import com.example.mvvmexample.model.MainViewModel
+import com.example.mvvmexample.viewmodel.MainViewModel
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
