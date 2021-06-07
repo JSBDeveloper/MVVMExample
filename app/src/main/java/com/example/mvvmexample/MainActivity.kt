@@ -1,5 +1,5 @@
 package com.example.mvvmexample
-import com.example.mvvmexample.data.MainViewModel
+import com.example.mvvmexample.model.MainViewModel
 import com.example.mvvmexample.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

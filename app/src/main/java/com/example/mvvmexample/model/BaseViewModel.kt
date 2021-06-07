@@ -1,4 +1,4 @@
-package com.example.mvvmexample.data
+package com.example.mvvmexample.model
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable

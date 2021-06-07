@@ -5,7 +5,7 @@ import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.example.mvvmexample.data.BaseViewModel
+import com.example.mvvmexample.model.BaseViewModel
 
 abstract class BaseView<T: ViewDataBinding, R : BaseViewModel>: AppCompatActivity() {
     lateinit var viewDataBinding: T
