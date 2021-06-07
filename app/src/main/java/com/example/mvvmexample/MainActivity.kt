@@ -1,16 +1,12 @@
 package com.example.mvvmexample
-
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import androidx.lifecycle.ViewModel
 import com.example.mvvmexample.data.MainViewModel
 import com.example.mvvmexample.databinding.ActivityMainBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseView<ActivityMainBinding, MainViewModel>() {
     override val layoutResourceId: Int
         get() = R.layout.activity_main
-    override val viewModel: MainViewModel
-        get() = MainViewModel(DataModelImpl())
+    override val viewModel: MainViewModel by viewModel()
 
     override fun initStartView() {
 
