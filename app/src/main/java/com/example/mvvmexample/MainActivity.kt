@@ -1,5 +1,6 @@
 package com.example.mvvmexample
 
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.mvvmexample.adapter.MainSearchRecyclerViewAdapter
@@ -29,6 +30,11 @@ class MainActivity : BaseView<ActivityMainBinding, MainViewModel>() {
     }
 
     override fun initDataBinding() {
+
+        viewModel.startSubActivityEvent.observe(this, Observer {
+            startActivity(Intent(applicationContext, SubActivity::class.java))
+        })
+
         viewModel.imageSearchResponseLiveData.observe(this, Observer {
             it.documents.forEach { document ->
                 mainSearchRecyclerViewAdapter.addImageItem(document.image_url, document.doc_url)
@@ -38,6 +44,11 @@ class MainActivity : BaseView<ActivityMainBinding, MainViewModel>() {
     }
 
     override fun initAfterBinding() {
+
+        do_something_button.setOnClickListener {
+            viewModel.doSomething()
+        }
+
         main_activity_search_button.setOnClickListener {
             viewModel.getImageSearch(main_activity_search_text_view.text.toString(), 1, 80)
         }

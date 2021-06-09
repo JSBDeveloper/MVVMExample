@@ -13,9 +13,17 @@ class MainViewModel(private val model: DataModel): BaseViewModel() {
 
     private val TAG = "MainViewModel"
 
+    private val _startSubActivityEvent = SingleLiveEvent<Any>()
+    val startSubActivityEvent: LiveData<Any>
+        get() = _startSubActivityEvent
+
     private val _imageSearchResponseLiveData = MutableLiveData<ImageSearchResponse>()
     val imageSearchResponseLiveData: LiveData<ImageSearchResponse>
         get() = _imageSearchResponseLiveData
+
+    fun doSomething() {
+        _startSubActivityEvent.call()
+    }
 
     fun getImageSearch(query: String, page: Int, size: Int) {
         addDisposable(model.getData(query, KakaoSearchSortEnum.Accuracy, page, size)
