@@ -1,5 +1,6 @@
 package com.example.mvvmexample.di
 
+import com.example.mvvmexample.adapter.MainSearchRecyclerViewAdapter
 import com.example.mvvmexample.api.ApiService
 import com.example.mvvmexample.model.DataModel
 import com.example.mvvmexample.model.DataModelImpl
@@ -14,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 private val BASE_URL = "https://dapi.kakao.com"
 
-val networkModule = module {
+var networkModule = module {
     single {
         val okhttpClient = OkHttpClient.Builder()
             .addInterceptor(get<Interceptor>())
@@ -35,11 +36,17 @@ var modelPart = module {
     }
 }
 
+var adapterPart = module {
+    factory {
+        MainSearchRecyclerViewAdapter()
+    }
+}
+
 var viewModelPart = module {
     viewModel {
         MainViewModel(get())
     }
 }
 
-var myDiModule = listOf(modelPart, viewModelPart, networkModule)
+var myDiModule = listOf(modelPart, viewModelPart, networkModule, adapterPart)
 

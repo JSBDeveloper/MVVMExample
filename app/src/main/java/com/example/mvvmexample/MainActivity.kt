@@ -1,6 +1,5 @@
 package com.example.mvvmexample
 
-import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.mvvmexample.adapter.MainSearchRecyclerViewAdapter
@@ -10,7 +9,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : BaseView<ActivityMainBinding, MainViewModel>() {
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
+    private val TAG = "MainActivity"
+
     override val layoutResourceId: Int
         get() = R.layout.activity_main
     override val viewModel: MainViewModel by viewModel()
