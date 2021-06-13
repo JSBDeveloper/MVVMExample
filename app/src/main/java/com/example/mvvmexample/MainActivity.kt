@@ -41,7 +41,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     override fun initAfterBinding() {
         main_activity_search_button.setOnClickListener {
-            viewModel.getImageSearch(main_activity_search_text_view.text.toString(), 1, 80)
+            viewModel.getImageSearch(main_activity_search_text_view.text.toString(), 1, 10)
         }
     }
 }

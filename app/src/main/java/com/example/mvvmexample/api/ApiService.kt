@@ -7,7 +7,7 @@ import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET("/v2/search/image")
+    @GET("/v2/search/web")
     fun searchImage(
         @Header("Authorization") auth: String,
         @Query("query") query:String,

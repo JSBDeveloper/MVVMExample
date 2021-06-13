@@ -16,15 +16,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 private val BASE_URL = "https://dapi.kakao.com"
 
 var networkModule = module {
-    single {
-        val okhttpClient = OkHttpClient.Builder()
-            .addInterceptor(get<Interceptor>())
-            .build()
+    single<ApiService> {
         Retrofit.Builder()
-            .client(okhttpClient)
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .client(OkHttpClient.Builder().build())
             .build()
             .create(ApiService::class.java)
     }
